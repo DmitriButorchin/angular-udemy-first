@@ -1,18 +1,24 @@
 import { Component } from '@angular/core';
-import { Header } from './header/header';
-import { User } from './user/user';
 import { DUMMY_USERS } from './dummy-users';
+import { Header } from './header/header';
+import { Tasks } from './tasks/tasks';
+import { User } from './user/user';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  imports: [Header, User],
+  imports: [Header, User, Tasks],
 })
 export class App {
   users = DUMMY_USERS;
+  selectedUserId = 'u1';
+
+  get selectedUser() {
+    return this.users.find((user) => user.id === this.selectedUserId)!;
+  }
 
   onSelectUser(id: string) {
-    console.log('Selected user with id', id);
+    this.selectedUserId = id;
   }
 }
