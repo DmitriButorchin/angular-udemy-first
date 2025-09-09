@@ -9,7 +9,7 @@ export class User {
   id = input.required<string>();
   avatar = input.required<string>();
   name = input.required<string>();
-  @Output() select = new EventEmitter<string>();
+  select = output<string>();
 
   imagePath = computed(() => {
     return 'assets/users/' + this.avatar();
