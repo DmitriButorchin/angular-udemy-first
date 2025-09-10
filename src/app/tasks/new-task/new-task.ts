@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,9 +9,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class NewTask {
   cancel = output<void>();
-  enteredTitle = '';
-  enteredSummary = '';
-  enteredDate = '';
+  enteredTitle = signal('');
+  enteredSummary = signal('');
+  enteredDate = signal('');
 
   onCancel() {
     this.cancel.emit();
