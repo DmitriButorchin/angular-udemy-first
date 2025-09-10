@@ -1,18 +1,13 @@
 import { Component, computed, input, output } from '@angular/core';
-
-interface IUser {
-  id: string;
-  name: string;
-  avatar: string;
-}
+import { type User } from './user.model';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.html',
   styleUrl: './user.css',
 })
-export class User {
-  user = input.required<IUser>();
+export class UserComponent {
+  user = input.required<User>();
   select = output<string>();
 
   imagePath = computed(() => {
