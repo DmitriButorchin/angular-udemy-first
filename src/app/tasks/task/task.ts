@@ -1,4 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+
+interface ITask {
+  id: string;
+  userId: string;
+  title: string;
+  summary: string;
+  dueDate: string;
+}
 
 @Component({
   selector: 'app-task',
@@ -6,4 +14,6 @@ import { Component } from '@angular/core';
   templateUrl: './task.html',
   styleUrl: './task.css',
 })
-export class Task {}
+export class Task {
+  task = input.required<ITask>();
+}
