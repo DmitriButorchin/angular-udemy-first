@@ -1,10 +1,12 @@
 import { Component, computed, input, output } from '@angular/core';
 import { type User } from './user.model';
+import { Card } from '../shared/card/card';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.html',
   styleUrl: './user.css',
+  imports: [Card],
 })
 export class UserComponent {
   user = input.required<User>();
